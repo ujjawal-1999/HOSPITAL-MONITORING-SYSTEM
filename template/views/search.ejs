@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Requests/Responses</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<style>
+ body{
+        margin:0;
+        padding:0;
+    }
+    .search-sort-box {
+        margin: 3vh;
+        font-size: 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sort-text {
+        margin-left: 12px;
+        font-weight: bold;
+        font-size: 22px;
+    }
+
+    .search-sort-box>button {
+        margin-left: 3px;
+    }
+
+    .search-box>select {
+        font-size: 15px;
+        border-radius: 20px;
+        outline: none;
+        padding: 3px;
+        width:200px;
+        padding:5px 10px;
+        border:1px solid black;
+        margin-left:8px;
+    }
+    .search-box{
+        display: flex;
+        justify-content: center;
+        margin:25px 25px;
+        align-items: center;
+    }
+    .search-box>label{
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .search-box>input{
+        width:200px;
+        margin-left:8px;
+        border-radius: 30px;
+        outline:none;
+        border:1px solid black;
+        padding:5px 10px;
+        /* margin:15px 20px 15px; */
+        font-size:15px;
+    }
+    .sortSeparator{
+        margin-left:2px;
+    }
+    .tableContainer{
+        margin:150px 150px 150px 150px;
+    }
+    .sideNav{
+        height:100vh;
+        width:5%;
+        background-color: white;
+        border:2px solid #d7d7d7;
+        margin:0;
+        position: fixed;
+        top:-0.1vh;
+        z-index:50;
+    }
+    .iconHolder{
+        width:100%;
+        margin-top:10vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .sideIcons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width:100%;
+        height:10vh;
+        font-size:30px;
+        border-bottom: 2px solid #d7d7d7;
+    }
+
+</style>
+<body>
+  <%let myResponses=data%>
+    <div>
+
+    <div class="tableContainer">
+      <h2 style="text-align: center;margin-bottom: 50px; font-size: 50px;font-weight: bold;">Patient Database</h2>
+      <div class="search-box">
+          <label>Search By Aadhar :</label>
+          <input id="nameInput" onkeyup=searchByName()></input>
+          <!-- <span class="sort-text">Search by Category :</span>
+          <select onChange=searchCategory() id="mySelect">
+              <option value="Self-Help">Self-Help</option>
+              <option value="Animals">Animals</option>
+              <option value="HealthCare">HealthCare</option>
+              <option value="De-tox">De-tox</option>
+              <option value="Old-Age Home">Old-Age Home</option>
+              <option value="Others">Others</option>
+          </select> -->
+      </div>
+            <table id="myTable" class="table table-striped table-hover table-bordered">
+                <thead >
+                  <tr>
+                    <th scope="col" style="width: 200px;" hidden>Patient ID</th>
+                    <th style="width: 200px;"scope="col">Patient Name</th>
+                    <th style="width:300px;" scope="col" hidden>Phone</th>
+                    <th style="width:300px;" scope="col">Gender</th>
+                    <th style="width:200px;" scope="col">Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%for(let i=0;i<myResponses.length;i++){ %>
+                    <tr data-toggle="modal" data-target=<%="#myModal"+i %> style="cursor:pointer">
+                      <td name="id" scope="row" hidden><%=myResponses[i].patient_id.toUpperCase()%></td>
+                      <td scope="row"><%=myResponses[i].patient_name.toUpperCase()%></td>
+                      <td scope="row" hidden><%=myResponses[i].patient_phone.toUpperCase()%></td>
+                      <td scope="row"><%=myResponses[i].patient_gender.toUpperCase()%></td>
+                      <td scope="row"> <form action="/step2" method="POST">
+                        <input type="text" name="number" value="<%=myResponses[i].patient_phone.toUpperCase()%>" hidden>  
+                        <input type="submit" value="More details">
+                      </form></td>
+                    </tr>
+                      <%}%>
+                    
+                  </tbody>
+                  </table>
+    </div>
+
+</div>
+<script>
+function searchByName(){
+    let input, filter, table, tr, td, i, txtValue;
+    console.log("hey")
+  input = document.getElementById("nameInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  console.log("table",table);
+  console.log("filter",filter);
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+function searchCategory() {
+            // Declare variables
+            let select, filter, table, tr, td, i, txtValue;
+            select = document.getElementById("mySelect");
+            filter = select.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    console.log("txtValue", txtValue.toUpperCase());
+                    console.log("filter", filter);
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+</script>
+ <script>
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+  </script>
+</body>
+</html>

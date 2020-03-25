@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Monitor NGOs</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .myRow {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 20vh;
+        flex-wrap: wrap;
+    }
+    .indexTitle{
+        font-weight: bold;
+        font-size:42px;
+        margin-bottom: 2vh;
+        width:100%;
+        text-align: center;
+    }
+
+    a>.myCol {
+        padding: 25px;
+        color: black;
+        text-decoration: none;
+        width: 20vw;
+        height: 50vh;
+        margin: 10px;
+        background: #d7d7d7;
+        cursor: pointer;
+        border-radius: 20px;
+        box-shadow: 0.5px 0.5px #ddd;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    .myCol:hover {
+        transform: scale(1.01);
+        transition: scale 0.5s ease-in-out;
+    }
+
+    .myCol-heading {
+        font-weight: bold;
+        font-size: 25px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .myCol-icons {
+        width: 100%;
+        font-size: 80px;
+        text-align: center;
+    }
+
+    .myCol-desp {
+        text-align: center;
+        padding: 20px;
+        font-size: 20px;
+    }
+
+    .myCol-btn {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div>
+        <!-- <div class="jumbotron">
+             <h1 style="text-align: center;">NGO MONITORING SYSTEM</h1>
+     </div> -->
+        <nav class="navbar fixed-top  navbar-expand-lg navbar-dark fixed" style="background-color: 	#43a9de;">
+            <a style="padding-left:5px"class="navbar-brand" href="#"> NMS | NGO Monitoring System</a>
+            <ul class="navbar-nav" style="margin-left:70vw;color:white;">
+                <li class="nav-item">
+                  <a style="color:white;font-size: 22px;" class="nav-link" href="/gov/logout">Logout</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="myRow">
+            <div class="indexTitle">MY DASHBOARD</div>
+            <a href="/gov/ngo/all">
+                <div class="myCol">
+                    <div class="myCol-heading">All Registersed NGOs</div>
+                    <div class="myCol-icons"><i class="fa fa-users"></i></div>
+                    <div class="myCol-desp">View All the NGOS Registered</div>
+                </div>
+            </a>
+            <a href="/gov/requests">
+                <div class="myCol">
+                    <div class="myCol-heading">Requests/Responses</div>
+                    <div class="myCol-icons"><i class="fa fa-handshake-o" aria-hidden="true"></i></div>
+                    <div class="myCol-desp">View and Respond to Requests and Responses of NGOs</div>
+                </div>
+            </a>
+            <a href="/gov/funds">
+                <div class="myCol">
+                    <div class="myCol-heading">Provide Funds</div>
+                    <div class="myCol-icons"><i class="fa fa-money" aria-hidden="true"></i></div>
+                    <div class="myCol-desp">Provide funds to appropriate NGOs</div>
+                </div>
+            </a>
+            <a href="/gov/invite">
+                <div class="myCol">
+                    <div class="myCol-heading">Invite Applications</div>
+                    <div class="myCol-icons"><i class="fa fa-location-arrow" aria-hidden="true"></i></div>
+                    <div class="myCol-desp">Invite applications from various NGOs for Government Projects</div>
+                </div>
+            </a>
+        </div>
+</body>
+
+</html>

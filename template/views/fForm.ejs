@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Provide Funds</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</head>
+<style>
+    .myForm{
+        margin:3vh;
+    }
+ .myForm label{
+        font-weight: bold;
+        font-size: 22px;
+        margin-top: 12px;
+    }
+.myForm textarea{
+font-size:22px;
+}
+.myForm button{
+   margin-right:22px;
+}
+body{
+        margin:0;
+        padding:0;
+    }
+    .search-sort-box {
+        margin: 3vh;
+        font-size: 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sort-text {
+        margin-left: 12px;
+        font-weight: bold;
+        font-size: 22px;
+    }
+
+    .search-sort-box>button {
+        margin-left: 3px;
+    }
+
+    .search-box>select {
+        font-size: 15px;
+        border-radius: 20px;
+        outline: none;
+        padding: 3px;
+        width:200px;
+        padding:5px 10px;
+        border:1px solid black;
+        margin-left:8px;
+    }
+    .search-box{
+        display: flex;
+        justify-content: center;
+        margin:25px 25px;
+        align-items: center;
+    }
+    .search-box>label{
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .search-box>input{
+        width:200px;
+        margin-left:8px;
+        border-radius: 30px;
+        outline:none;
+        border:1px solid black;
+        padding:5px 10px;
+        /* margin:15px 20px 15px; */
+        font-size:15px;
+    }
+    .sortSeparator{
+        margin-left:2px;
+    }
+    .tableContainer{
+        margin:150px 150px 150px 150px;
+    }
+    .sideNav{
+        height:100vh;
+        width:5%;
+        background-color: white;
+        border:2px solid #d7d7d7;
+        margin:0;
+        position: fixed;
+        top:-0.1vh;
+        z-index:50;
+    }
+    .iconHolder{
+        width:100%;
+        margin-top:10vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .sideIcons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width:100%;
+        height:10vh;
+        font-size:30px;
+        border-bottom: 2px solid #d7d7d7;
+    }
+</style>
+<body>
+    <% let myData=data %>
+    <div>
+        <nav class="navbar fixed-top  navbar-expand-lg navbar-dark fixed" style="background-color: 	#43a9de;">
+            <a style="padding-left:5px"class="navbar-brand" href="/"> NMS | NGO Monitoring System</a>
+            <ul class="navbar-nav" style="margin-left:70vw;color:white;">
+                <li class="nav-item">
+                  <a style="color:white;font-size: 22px;" class="nav-link" href="/gov/logout">Logout</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sideNav">
+            <div class="iconHolder">
+            <div class="sideIcons"><a href="/gov" data-toggle="tooltip" data-placement="right" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a></div>
+            <div class="sideIcons"><a href="/gov/ngo/all" data-toggle="tooltip" data-placement="right" title="All NGOs"><i class="fa fa-users" aria-hidden="true"></i></a></div>
+            <div class="sideIcons"><a href="/gov/requests" data-toggle="tooltip" data-placement="right" title="NGO Requests"><i class="fa fa-handshake-o" aria-hidden="true"></i></a></div>
+            <div class="sideIcons"><a href="/gov/funds" data-toggle="tooltip" data-placement="right" title="Funding"><i class="fa fa-money" aria-hidden="true"></i></a></div>
+            <div class="sideIcons"><a href="/gov/invite" data-toggle="tooltip" data-placement="right" title="Invitations"><i class="fa  fa-location-arrow" aria-hidden="true"></i></a></div>
+        </div></div>
+        <div class="tableContainer">
+            <h2 style="text-align: center;margin-bottom: 50px; font-size: 50px;font-weight: bold;">Funding Form</h2>
+        <form class="myForm" action="/gov/funds" method="POST">
+            <div class="form-group">
+                <label for="">NGO Name</label>
+                <input class="form-control" type='text'name="name" value="<%=myData.name%>" placeholder=<%=myData.name%> readonly>
+            </div>
+            <div class="form-group">
+                <label for="">Amount</label>
+                <input class="form-control"type="number" placeholder="please specify the amount of money" name="amount">
+            </div>
+            <div class="form-group">
+                <label for="">Message(if any...)</label>
+                <textarea placeholder="your message here.." style="font-size:22px;padding:5px 12px" class="form-control" name="message" id="" cols="10" rows="10"></textarea>
+            </div>
+            <button type="submit" class="btn btn-lg btn-success">Submit</button>
+            <a href="/index.html" class="btn btn-lg btn-danger">Close</a>
+        </form>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+    </script>
+</html>

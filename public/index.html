@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>LOGIN| SIGNUP</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Bellota+Text&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/util.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<style>
+    *{
+        padding:0px;
+        margin:0px;
+        
+    
+    }
+    body
+    {
+       /* overflow: hidden; */
+    }
+    /* body::-webkit-scrollbar {
+        width: 1em;
+      }
+       
+      body::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+    body::-webkit-scrollbar-thumb {
+        background-color:#60bed4;
+        outline: 1px solid slategrey;
+      } */
+   .header
+    {
+        background-image:linear-gradient(45deg,rgba(43,112,225,0.88) 0%,rgba(27,206,219,0.86) 100%) , url('bg.jpg'); 
+        
+        height:100vh;
+        width:100vw;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        
+        font-family: 'Bellota Text';
+        color:#fff;
+        font-size: 1.5em;
+    
+    }
+    .header h1
+    {
+        position: relative;
+        left:calc(50% - 2em);
+        top:calc(50% - 1.5em);
+        font-weight: 6400;
+        font-size: 3.5em;
+        
+    }
+    .header h6
+    {
+        position: relative;
+        top:50%;
+        left:36%;
+        font-weight: 0;
+        font-family: 'Open Sans';
+        font-size:1.5em;
+    }
+    .header img
+    {
+        position: relative;
+        border-radius: 50%;
+        width:200px;
+        height:200px;
+        left:calc(50% - 100px);
+    }
+    .header section
+    {
+        overflow-x: hidden;
+        overflow-y: hidden;
+        width: 100vw;
+        position: relative;
+        top:100px;
+    }
+    .header button
+    {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom:10px;
+        width:100px;
+        height:30px;
+        left:calc(50% - 50px);
+        border-radius: 30px;
+        outline: none;
+        box-shadow: none;
+        border:none;
+        background-color:rgb(96, 190, 212);
+    }
+    .header button:hover
+    {
+        box-shadow:2px 2px 20px rgba(27,206,219,0.9);
+    
+    }
+
+#message{
+font-size:0.9rem;
+font-family:sans-serif;
+line-height:1.2;
+letter-spacing:1px;
+margin-top:-5px;
+}
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    right: 0;
+    top: 0;
+    background-color: #45a1b6; /* Black fallback color */
+    background-color: #45a1b6; /* Black w/opacity */
+    
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  }
+  
+  /* Position the content inside the overlay */
+  .overlay-content {
+      z-index:1000;
+    position: relative;
+    top: 25%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  }
+  
+  /* The navigation links inside the overlay */
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+  }
+  
+  /* Position the close button (top right corner) */
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+  }
+  
+  /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+  }
+
+.disabled
+        {
+            background: none repeat scroll 0 0 gray;
+            cursor: default !important;
+        }
+        .brand{
+        text-align:center;
+        font-size:1.6rem;
+        margin-left:0;
+        padding:5vh 2vw;
+        letter-spacing:2px;
+        line-height:2vh;
+        font-family:Oswald sans-serif;
+        background:#60bed4;
+        color:white;
+        height:10vh;
+        width:auto;
+        border-radius:4px;
+        }
+        @media (max-width:768px){
+        .brand{
+        font-size:1.2rem;
+        }
+        }
+</style>
+</head>
+<body id="body_tag">
+    <header class="header">
+        <section>
+        <h1>AROGYA</h1>
+        <img src="logo_arogya.png">
+    <!-- 	<h6>We care about your health  <br><b style="margin:50px">more than you do<b></h6> -->
+        </section>
+        <button><a onclick="scroll_change()" style="text-decoration: none;color:#fff " href="">Sign In</a></button>
+    </header>
+<section class="login_area" id="login_area">
+<div class="limiter">
+<div class="container-login100" style="background:#fff;position:absolute;">
+<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54 form-box" id="form-box">
+<div class="brand">
+Hospitals</div>
+<div class="button-box">
+<div id="btn"></div>
+<button type="button" class="toggle-btn" onclick="login()"><b>Log In</b></button>
+<button type="button" class="toggle-btn" onclick="register()"><b>Sign Up</b></button>
+</div>
+<form class="login100-form validate-form in" id="login" method="POST" action="/ngo/hospital_login">
+<div class="wrap-input100 validate-input m-b-23">
+<span class="label-input100">Email Id</span>
+<input class="input100" type="email" name="emailid" placeholder="Type your email" required>
+<span class="focus-input100"></span>
+</div>
+
+<div class="wrap-input100 validate-input">
+<span class="label-input100">Password</span>
+<input class="input100" type="password" name="password" placeholder="Type your password" required>
+<span class="focus-input100"></span>
+</div>
+
+<div class="text-left p-t-8 p-b-54" style="line-height:3.5;">
+<input class="" type="checkbox">
+Remember Password
+</div>
+<div class="container-login100-form-btn">
+<div class="wrap-login100-form-btn">
+<div class="login100-form-bgbtn"></div>
+<button class="login100-form-btn">
+Login
+</button>
+</div>
+</div>
+<div class="text-right p-t-8 p-b-54" style="line-height:2;">
+<a href="" class="forgot-password">
+Forgot Password
+</a>
+</div>
+<!-- <hr class="break">
+<div class="txt1 text-center p-t-25 p-b-20">
+<span>
+Login With
+</span>
+</div>
+
+<div class="flex-c-m" style="margin-bottom:10%;">
+<a href="#" class="login100-social-item bg1" title="Facebook">
+<i class="fa fa-facebook"></i>
+</a>
+<a href="#" class="login100-social-item bg3" title="Google">
+<i class="fa fa-google"></i>
+</a>
+
+<a href="#" class="login100-social-item bg2" style="font-size:35px;" title="OTP">
+<i class="fa fa-mobile" aria-hidden="true"></i>
+</a>
+</div> -->
+</form>
+
+
+<form class="login100-form validate-form in" id="register" method="POST" action="/ngo/signup">
+  <div class="wrap-input100 validate-input m-b-10">
+  <span class="label-input100">Name</span>
+  <input class="input100" type="name" name="name" placeholder="Type your NGO Name" required>
+  <span class="focus-input100"></span>
+  </div>
+  <div class="wrap-input100 validate-input m-b-10">
+  <span class="label-input100">Email Id</span>
+  <input class="input100" type="email" name="emailid" placeholder="Type your email" required>
+  <span class="focus-input100"></span>
+  </div>
+  <div class="wrap-input100 validate-input m-b-10">
+      <span class="label-input100">Registration Id</span>
+      <input class="input100" type="text" name="registration_id" placeholder="Type your id" required>
+      <span class="focus-input100"></span>
+      </div>
+  <div class="wrap-input100 validate-input m-b-10">
+  <span class="label-input100">Phone Number</span>
+  <input class="input100" type="text" name="phone" placeholder="Type your phone number" required>
+  <span class="focus-input100"></span>
+  </div>
+  <div class="wrap-input100 validate-input m-b-10">
+  <span class="label-input100">Password</span>
+  <input class="input100" id="password" type="password" name="password" placeholder="Type your password" required>
+  <span class="focus-input100"></span>
+  </div>
+  <div class="wrap-input100 validate-input" style="margin-bottom:5px">
+  <span class="label-input100">Confirm Password</span>
+  <input class="input100" id="confirm_password" type="password" name="confirmPassword" placeholder="Confirm Password" required>
+  <span class="focus-input100"></span>
+  </div>
+  <span id='message'></span>
+  <div class="container-login100-form-btn" style="margin-bottom: 23px;margin-top: 20px;">
+  <div class="wrap-login100-form-btn">
+  <div class="login100-form-bgbtn"></div>
+  <button class="login100-form-btn" id="signup">
+  SignUp
+  </button>
+  </div>
+  </div>
+  <!-- <hr class="break">
+  <div class="txt1 text-center p-t-25 p-b-20">
+  <span>
+  SignUp With
+  </span>
+  </div>
+  
+  <div class="flex-c-m" style="margin-bottom:10%;">
+  <a href="#" class="login100-social-item bg1" title="Facebook">
+  <i class="fa fa-facebook"></i>
+  </a>
+  
+  <a href="#" class="login100-social-item bg3" title="Google">
+  <i class="fa fa-google"></i>
+  </a>
+  
+  <a href="#" class="login100-social-item bg2" style="font-size:35px;" title="OTP">
+  <i class="fa fa-mobile" aria-hidden="true"></i>
+  </a>
+  </div> -->
+  </form>
+</div>
+</div>
+</div>
+<div id="dropDownSelect1"></div>
+<div clas="img-divider" style="position: absolute;left:600px;margin-top:50px"><img src="arogy.png"></div>
+
+<div class="container-login100" style="background:#fff;position:absolute;left:750px">
+    <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54 form-box2" id="form-box2">
+    <div class="brand">
+    User Login</div>
+    <form class="login100-form validate-form in"method="POST" action="/ngo/login" style="margin-top:110px">
+    <div class="wrap-input100 validate-input m-b-23">
+    <span class="label-input100">Aadhar ID</span>
+    <input class="input100" type="text" name="patient_id" placeholder="Enter your Aadhar ID" required>
+    <span class="focus-input100"></span>
+    </div>
+    
+    <!-- <div class="wrap-input100 validate-input">
+    <span class="label-input100">Password</span>
+    <input class="input100" type="password" name="password" placeholder="Type your password" required>
+    <span class="focus-input100"></span>
+    </div> -->
+    
+    <!-- <div class="text-left p-t-8 p-b-54" style="line-height:3.5;">
+    <input class="" type="checkbox">
+    Remember Password
+    </div> -->
+    <div class="container-login100-form-btn">
+    <div class="wrap-login100-form-btn">
+    <div class="login100-form-bgbtn"></div>
+    <button class="login100-form-btn">
+    Login
+    </button>
+    </div>
+    </div>
+    <!-- <div class="text-right p-t-8 p-b-54" style="line-height:2;">
+    <a href="" class="forgot-password">
+    Forgot Password
+    </a>
+    </div> -->
+    <!-- <hr class="break">
+    <div class="txt1 text-center p-t-25 p-b-20">
+    <span>
+    Login With
+    </span>
+    </div>
+    
+    <div class="flex-c-m" style="margin-bottom:10%;">
+    <a href="#" class="login100-social-item bg1" title="Facebook">
+    <i class="fa fa-facebook"></i>
+    </a>
+    <a href="#" class="login100-social-item bg3" title="Google">
+    <i class="fa fa-google"></i>
+    </a>
+    
+    <a href="#" class="login100-social-item bg2" style="font-size:35px;" title="OTP">
+    <i class="fa fa-mobile" aria-hidden="true"></i>
+    </a>
+    </div> -->
+    </form>
+    </div></div>
+
+
+
+    <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a   href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="color:#fff">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content">
+          <a href="#">Link to project 1</a>
+          <a href="#">Link to Notification 2</a>
+          <a href="#">Link to project 1</a>
+          <a href="#">Link to Notification 2</a>
+          
+        </div>
+      
+      </div>
+      
+      <!-- Use any element to open/show the overlay navigation menu -->
+      <span style="position: absolute;right:20px" onclick="openNav()"><i class="fa fa-bell" style="color:#60bed4;font-size:30px"></i></span>
+
+
+</section>
+<script>
+var x = document.getElementById("login");
+var formBox = document.getElementById("form-box");
+var y = document.getElementById("register");
+var z = document.getElementById("btn");
+function register(){
+if(window.innerWidth === 320)
+formBox.style.height = "150vh";
+else
+formBox.style.height = "120vh";
+x.style.display = "none";
+y.style.display = "block";
+z.style.left = "124px";
+}
+function login(){
+if(window.innerWidth === 320)
+formBox.style.height = "120vh";
+else
+formBox.style.height = "110vh";
+x.style.display = "block";
+y.style.display = "none";
+z.style.left = "0px";
+}
+</script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+$('#password, #confirm_password').on('keyup', function () {
+    if ($('#password').val() == $('#confirm_password').val() || $('#password').val() === "") {
+        $('#signup').removeClass('disabled');
+         $('#message').html('');
+    } else{
+        $('#message').html('Passwords are not matching').css('color', 'red');
+        $('#signup').addClass('disabled');
+    }
+});
+function scroll_change()
+{
+    document.getElementById('body_tag').style.overflowY="scroll";
+    document.getElementsByTagName('header')[0].style.display='none';
+}
+
+
+/* Open when someone clicks on the span element */
+function openNav() {
+    document.getElementById("myNav").style.width = "20%";
+  }
+  
+  /* Close when someone clicks on the "x" symbol inside the overlay */
+  function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+  }
+
+</script>
+</body>
+</html>

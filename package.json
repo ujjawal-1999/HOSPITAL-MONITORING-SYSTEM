@@ -1,0 +1,40 @@
+{
+  "name": "ngo-hacks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js -e js,html,css,hbs,ejs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ank-21/ngo-hacks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ank-21/ngo-hacks/issues"
+  },
+  "homepage": "https://github.com/ank-21/ngo-hacks#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^6.5.4",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "hbs": "^4.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "messagebird": "^3.4.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.8.11",
+    "nexmo": "^2.6.0",
+    "node-localstorage": "^2.1.5",
+    "nodemailer": "^6.4.2",
+    "nodemon": "^2.0.2",
+    "puretext": "^0.1.5",
+    "socket.io": "^2.3.0",
+    "validator": "^12.2.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}

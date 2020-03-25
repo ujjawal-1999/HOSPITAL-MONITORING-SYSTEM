@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style-main.css">
+        <link rel="stylesheet" type="text/css" href="/css/util.css">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <style>
+        .marquee {
+         width: 100vw;
+         margin: 0 auto;
+         padding:1% 0;
+         overflow: hidden;
+         white-space: nowrap;
+         box-sizing: border-box;
+         background:#cf455c;
+     }
+     
+     .marquee:hover {
+         animation-play-state: paused
+     }
+     .text-size{
+      font-size:1.3rem;
+      color:white;
+      display:inline-block;
+      margin-right:5%;
+     }
+     .marquee a:hover{
+      text-decoration:none;
+      color:inherit;
+     }
+        @media (max-width:768px)
+        {
+          .tmenu1{
+            width:20vw;
+          }
+        }
+        .add-more{
+      float:right;
+      text-align:center;
+      cursor:pointer;
+      outline:none;
+      position:relative;
+      top:-35px;
+      margin-left:2%;
+      font-weight:bolder;
+    }
+    .send-style,.send-style-mid{
+      background:#cf455c;
+      color:white;
+    }
+    .send-style-mid{
+      margin:0 auto;
+      display:flex;
+      justify-content:center;
+    }
+    .send-style:hover,.send-style-mid:hover{
+      color:white;
+    }
+    .btn-center{
+      display:flex;
+      justify-content:center;
+    }
+    .form-control{
+      border:0;
+      border-bottom:1px;
+      outline:none;
+    }
+    .form-control:focus{
+      outline:none;
+      border:none;
+      box-shadow:none;
+    }
+    .border-class{
+      border:2px solid #d9d9d9;
+    }
+     .text-class{
+      border:2px solid #d9d9d9;
+    }
+    .text-class:focus{
+      border:2px solid #d9d9d9;
+    }
+      .left-address ul li:last-child{
+      pointer-events:all;
+    }
+  .logout-icon{
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    left: 70vw;
+    top: -23vh;
+    font-size:1.7rem;
+    background: #cf455c;
+    color: #fff;
+    border: 2px solid #fff;
+    }
+       
+        </style>
+</head>
+<body>
+  <!-- <marquee class="marquee col-sm-12" direction="left" scrollamount="10" behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();">
+          <div class="text-size">Notifications will come here...</div><div class="text-size"><%=ngo.message %></div>
+    </marquee> -->
+    <section id="container" class="col-lg-8 col-md-10 col-sm-12" style="margin-top:8%;">
+     <!--    <header>
+
+            <div id="logo">
+                <h2>TIM WiLSON</h2>
+                <h4>GRAPHIC & WEB DESIGNER</h4>
+            </div>
+
+            <div class="social-icons-container">
+            </div>
+        </header> -->
+
+        <section id="content">
+          <div class="color-box">
+               <a href="/ngo/logout" class="logout-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+             </div>
+            <div id="profile">
+                <div class="about col-md-12 col-sm-12">
+                  <div class="photo" style="margin-bottom: 1.5vh;">
+                        <ul>
+                            <li><img src="/img/images.jpeg" alt="" class="pro-pic" width="150px" height="180px"></li>
+
+                        </ul>
+                    </div>
+                    <div class="ngo-name">
+                    <h1><%=ngo.name%></h1>
+                    <br>
+                    <!-- <p style="width:80%">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, inventore eveniet! Maiores, doloremque eius esse quae quis veniam obcaecati modi!
+                    </p> -->
+                  </div>
+                </div>
+
+                <ul class="personal-info col-md-8 col-sm-12">
+                    <li><label>Name</label><span><%=ngo.name%></span></li>
+                    <li><label>Email</label><span class="word-wrap" style="text-transform: none;"><%=ngo.emailid%></span></li>
+                    <li><label>registration id</label><span><%=ngo.registration_id%></span></li>
+                    <li><label>Phone</label><span><%=ngo.phone%></span></li>
+                </ul>
+            </div>
+
+            <nav class="menu">
+                <ul class="tabs">
+                    <li class="tmenu">
+                        <a href="#profile" class="tab-profile active"><i><i class="fa fa-user"></i></i>PROFILE</a>
+                    </li>
+                    <li class="tmenu">
+                        <a href="#resume" ><i><i class="fa fa-info-circle"></i></i>DETAILS</a>
+                    </li>
+                    <li class="tmenu">
+                        <a href="#portfolio" ><i><i class="fa fa-check-circle"></i></i>PATIENTS</a>
+                    </li>    
+                </ul>
+            </nav>
+
+            <section id="resume">
+                <div class="timeline-section">
+                      <div class="main-wrapper-resume">
+         <!-- carttitle-wrapper start -->
+         
+         <div class="carttitle-wrapper">
+            <div class="color-box">
+               <button id="red-color" class="btn-style"></button>
+               <button id="yellow-color" class="btn-style"></button>
+               <button id="blue-color" class="btn-style"></button>
+               <button id="green-color" class="btn-style"></button>
+               <button class="setting-icon "><i class="fa fa-cog fa-spin" aria-hidden="true"></i></button>
+            </div>
+            <div class="container no-padding">
+               <div class="row no-margin">
+                  <div class="col-md-12 no-padding bg-color-left">
+                     <div class="left-name bg-color-1">
+                        <h2><%=ngo.name%></h2>
+                        <h5>Category : <%=ngo.category%></h5>
+                     </div>
+                     <div class="left-address">
+                        <ul>
+                            <li><span class="text-color">Name Of The Hospital</span><%=ngo.name%></li>
+                           <li><span class="text-color">Phone</span><%=ngo.phone%></li>
+                           <li><span class="text-color">Email ID</span><%=ngo.emailid%></li>
+                           <li><span class="text-color">Registration ID</span><%=ngo.registration_id%></li>
+                           <!-- <li><span class="text-color">Name of Board Of Director</span><%=ngo.directorname%></li> -->
+                           <!-- <li><span class="text-color">Gender</span>
+                           <%=ngo.gender%>
+                           </li> -->
+                           <li><span class="text-color">Address</span>
+                           <%=ngo.address%>
+                           </li>
+                           <li><span class="text-color">State</span>
+                           <%=ngo.state%>
+                           </li>
+                           <li><span class="text-color">Years Operated</span><%=ngo.years%></li>
+                           <!-- <li><span class="text-color">No. of Associated People</span><%=ngo.people%></li> -->
+                           <li><span class="text-color">Website</span><a href="<%=ngo.website%>"><%=ngo.website%></a></li>
+                           <!-- <li style="margin-left:14vw;"><span class="text-color" style="margin-left:-14vw;">Social Media Links of NGO</span><a href="<%=ngo.links%>"><%=ngo.links%></a></li> -->
+                        </ul>
+                     </div>
+                     <div class="ex-box" style="margin-bottom:5%;">
+                      <button type="button" class="btn send-style-mid" data-toggle="modal" data-target="#exampleModal">Edit Details</button>
+                      <!-- <button type="button" class="btn send-style">Seek Permission</button> -->
+                    </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="/ngo/details">
+          <div class="form-group">
+            <input type="text" class="form-control" name="name" value="<%=ngo.name%>" hidden>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="phone" value="<%=ngo.phone%>" hidden>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="emailid" value="<%=ngo.emailid%>" hidden>
+          </div>
+           <!-- <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="directorname" class="col-form-label label-input100">Name of Board Of Director</label>
+            <input type="text" class="form-control input100" name="directorname" required>
+            <span class="focus-input100"></span>
+          </div> -->
+          <!-- <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="Organizing" class="col-form-label label-input100">Gender</label>
+            <select class="form-control input100" name="gender" required>
+              <option value=""></option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="others">Others</option>
+            </select>
+          </div> -->
+          <div class="form-group">
+            <label for="office-address" class="col-form-label">Office Address</label>
+            <textarea class="form-control text-class" name="address" required></textarea>
+          </div>
+          <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="Organizing" class="col-form-label label-input100">State</label>
+            <select class="form-control input100" name="state" required>
+              <option></option>
+              <option>Andaman and Nicobar Islands</option>
+              <option>Andhra Pradesh</option>
+              <option>Arunachal Pradesh</option>
+              <option>Assam</option>
+              <option>Bihar</option>
+              <option>Chandigarh</option>
+              <option>Chhattisgarh</option>
+              <option>Dadra and Nagar Haveli</option>
+              <option>Delhi</option>
+              <option>Goa</option>
+              <option>Gujarat</option>
+              <option>Haryana</option>
+              <option>Himachal Pradesh</option>
+              <option>Jammu and Kashmir</option>
+              <option>Jharkhand</option>
+              <option>Karnataka</option>
+              <option>Kerala</option>
+              <option>Ladakh</option>
+              <option>Lakshadweep</option>
+              <option>Madhya Pradesh</option>
+              <option>Maharashtra</option>
+              <option>Manipur</option>
+              <option>Meghalaya</option>
+              <option>Mizoram</option>
+              <option>Nagaland</option>
+              <option>Odisha</option>
+              <option>Puducherry</option>
+              <option>Punjab</option>
+              <option>Rajasthan</option>
+              <option>Sikkim</option>
+              <option>Tamil Nadu</option>
+              <option>Telangana</option>
+              <option>Tripura</option>
+              <option>Uttar Pradesh</option>
+              <option>Uttarakhand</option>
+              <option>West Bengal</option>
+            </select>
+          </div>
+       <!-- <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="Category" class="col-form-label label-input100">Category</label>
+            <select class="form-control input100" id="categorized" name="category" onchange="Category()" required>
+               <option value=""></option>
+              <option value="Animals">Animals</option>
+              <option value="Self Help">Self Help</option>
+              <option value="Health Care">Health Care</option>
+              <option value="Detox">Detox</option>
+              <option value="Others">Others</option>
+            </select>
+          </div> -->
+          <!-- <div class="form-group">
+            <label for="other-category" class="col-form-label">Others(please specify)</label>
+            <textarea class="form-control text-class" name="othercategory" id="textarea2"></textarea>
+          </div> -->
+          <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="years-operated" class="col-form-label label-input100">Years Operated</label>
+            <input type="number" class="form-control input100" name="years">
+            <span class="focus-input100"></span>
+          </div>
+          <!-- <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="message-text" class="col-form-label label-input100">No. Of associated people</label>
+            <input type="number" class="form-control input100" name="people">
+            <span class="focus-input100"></span>
+          </div> -->
+          <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="website" class="col-form-label label-input100">Website</label>
+            <input type="text" class="form-control input100" name="website">
+            <span class="focus-input100"></span>
+          </div>
+          <!-- <div id="room_fileds">
+           <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="message-text" class="col-form-label label-input100">Social Media Links Of NGO</label>
+            <input type="url" class="form-control col-md-10 input100" name="links">
+            <span class="focus-input100"></span>
+            <input type="button" id="more_fields" class="add-more" onclick="add_fields();" value="+"/>
+             <input type="button" class="add-more" onclick="remove_fields();" value="-"/>
+
+          </div>
+        </div> -->
+    <div class="btn-center">
+          <button type="submit" class="btn send-style">Save</button>
+    </div>
+    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         </div>
+           </section>
+
+      <section id="portfolio">
+        <a href="/ngo/search" target="_blank"><strong>Search existing Patients </strong> </a>
+                <form method="POST" action="/ngo/permission">
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="name" value="<%=ngo.name%>" hidden>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="phone" value="<%=ngo.phone%>" hidden>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="emailid" value="<%=ngo.emailid%>" hidden>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="website" value="<%=ngo.website%>" hidden>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="address" value="<%=ngo.address%>" hidden>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="state" value="<%=ngo.state%>" hidden>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="years" value="<%=ngo.years%>" hidden>
+                  </div>
+          <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="other-organizing" class="col-form-label label-input100">Name</label>
+            <textarea class="form-control text-class" name="patient_name"></textarea>
+          </div>
+          <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="other-organizing" class="col-form-label label-input100 ">Email ID</label>
+            <textarea class="form-control text-class" name="patient_emailid"></textarea>
+          </div>
+          <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="other-organizing" class="col-form-label label-input100">Aadhar ID</label>
+            <textarea class="form-control text-class" name="patient_id" required></textarea>
+          </div>
+          <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="other-organizing" class="col-form-label label-input100">Phone</label>
+            <textarea class="form-control text-class" name="patient_phone" required></textarea>
+          </div>
+          <!-- <div class="form-group">
+            <label for="other-organizing" class="col-form-label"></label>
+            <textarea class="form-control text-class" name="reasons" required></textarea>
+          </div> -->
+          <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="other-organizing" class="col-form-label label-input100">Gender</label>
+            <select class="form-control text-class" name="patient_gender" required>
+              <option value=""></option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="others">Others</option>
+            </select>
+          </div>
+           <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="other-organizing" class="col-form-label label-input100">Address</label>
+            <input type="text" class="form-control text-class" name="patient_address">
+            <span class="focus-input100"></span>
+          </div>
+          <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="other-organizing" class="col-form-label label-input100">State</label>
+            <select class="form-control text-class" name="patient_state" required>
+              <option></option>
+              <option>Andaman and Nicobar Islands</option>
+              <option>Andhra Pradesh</option>
+              <option>Arunachal Pradesh</option>
+              <option>Assam</option>
+              <option>Bihar</option>
+              <option>Chandigarh</option>
+              <option>Chhattisgarh</option>
+              <option>Dadra and Nagar Haveli</option>
+              <option>Delhi</option>
+              <option>Goa</option>
+              <option>Gujarat</option>
+              <option>Haryana</option>
+              <option>Himachal Pradesh</option>
+              <option>Jammu and Kashmir</option>
+              <option>Jharkhand</option>
+              <option>Karnataka</option>
+              <option>Kerala</option>
+              <option>Ladakh</option>
+              <option>Lakshadweep</option>
+              <option>Madhya Pradesh</option>
+              <option>Maharashtra</option>
+              <option>Manipur</option>
+              <option>Meghalaya</option>
+              <option>Mizoram</option>
+              <option>Nagaland</option>
+              <option>Odisha</option>
+              <option>Puducherry</option>
+              <option>Punjab</option>
+              <option>Rajasthan</option>
+              <option>Sikkim</option>
+              <option>Tamil Nadu</option>
+              <option>Telangana</option>
+              <option>Tripura</option>
+              <option>Uttar Pradesh</option>
+              <option>Uttarakhand</option>
+              <option>West Bengal</option>
+            </select>
+          </div>
+          <!-- <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="other-organizing" class="col-form-label label-input100">Budget</label>
+            <input type="text" class="form-control input100" name="budget">
+            <span class="focus-input100"></span>
+          </div>
+         <div class="form-group wrap-input100 validate-input m-b-23">
+            <label for="other-organizing" class="col-form-label label-input100">Number of Projects Completed</label>
+            <input type="number" class="form-control input100" name="projects">
+            <span class="focus-input100"></span>
+          </div> -->
+    <div class="btn-center">
+          <button type="submit" class="btn send-style">ADD PATIENT</button>
+    </div>
+    </form>
+           </section>
+
+
+    </section>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="/js/portfolio.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.easytabs/3.2.0/jquery.easytabs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.caroufredsel/6.2.1/jquery.carouFredSel.packed.js"></script>
+    <script>
+   $('#myModal').modal({
+  keyboard: false
+});
+  </script>
+   <script>
+    //var organize = document.querySelector("#selected").selectedIndex;
+    //var str = document.querySelectorAll("#selected option")[organize].value;
+    //var otherOrganize = document.querySelector("#textarea1");
+    //var organizedetails = document.querySelector("#organizedetails");
+    //var otherorganizedetails = document.querySelector("#otherorganizedetails");
+    //if(str === "" || str === "Others"){
+      //organizedetails.style.display = "none";
+      //otherorganizedetails.style.display = "block";
+    //}
+    //else{
+      //otherorganizedetails.style.display = "none";
+      //organizedetails.style.display = "block";
+    //}
+   
+  </script>
+   <script>
+      function disableOrganize(){
+        var p = document.querySelector("#textarea1");
+        var q = document.querySelector("#selected").selectedIndex;
+        var strUser = document.querySelectorAll("#selected option")[q].value;
+        console.log(strUser);
+        if(strUser === "Others")
+          p.disabled = false;
+        else
+          p.disabled = true;
+
+    };
+  </script>
+  <script>
+     function Category(){
+        var a = document.querySelector("#textarea2");
+        var b = document.querySelector("#categorized").selectedIndex;
+        var str = document.querySelectorAll("#categorized option")[b].value;
+        console.log(str);
+        if(str === "Others")
+          a.disabled = false;
+        else
+          a.disabled = true;
+    };
+    function add_fields() {
+    var objTo = document.getElementById('room_fileds');
+    var divtest = document.createElement("div");
+    divtest.innerHTML = '<div class="form-group wrap-input100 validate-input m-b-23"><label for="message-text" class="col-form-label label-input100">Social Media Links</label><input type="url" class="form-control col-md-10 input100"><span class="focus-input100"></span><input type="button" id="more_fields" class="add-more" onclick="add_fields();" value="+"/><input type="button" class="add-more" onclick="remove_fields();" value="-"/>';
+    objTo.appendChild(divtest);
+};
+function remove_fields(){
+  var objTo = document.getElementById('room_fileds');
+    objTo.removeChild(objTo.lastChild);
+};
+   // function add_fields1() {
+   // var objTo = document.getElementById('room_fileds1');
+    //var divtest = document.createElement("div");
+    //divtest.innerHTML = '<div class="left-address"  style="padding-right:3%;"><ul><li  id="organizedetails"><span class="text-color">Organize</span><%=ngo.organize%></li><li id="otherorganizedetails" style="display: none;"><span class="text-color">Organize other details</span><%=ngo.otherorganize%></li><li style="margin-left:14vw;"><span class="text-color" style="margin-left:-14vw;">Project Proposal</span><%=ngo.reasons%></li><li><span class="text-color">Date Of Organizing</span><%=ngo.date%><li><span class="text-color">Budget</span><%=ngo.budget%></li><li><span class="text-color">No. Of Completed Projects</span><%=ngo.projects%></li></ul></div><div class="ex-box container" style="margin-bottom:5%;"><div class="row"><div class="col-md-3"></div><button type="button" class="btn send-style btn-center col-md-3" data-toggle="modal" data-target="#exampleModal1">Edit Permission Details</button>{{!-- <button type="button" class="btn send-style btn-center col-md-3"  style="margin-left:1%;">Seek Permission</button> --%><div class="col-md-3"></div></div></div><div class="ex-heading loader" id="room_fileds1"><h2>Permissions</h2><input type="button" id="more_fields1" style="margin-left:80%;padding:10px;border:2px solid black;position:relative;top:-50px;" class="add-more1" onclick="add_fields1();" value="+"/><input type="button" class="add-more1" style="margin-left:85%;padding:10px;border:2px solid black;position:relative;top:-80px;" onclick="remove_fields1();" value="-"/></div>';
+    //objTo.appendChild(divtest);
+//};
+//function remove_fields1(){
+  //var objTo = document.getElementById('room_fileds1');
+    //objTo.removeChild(objTo.lastChild);
+//};
+  </script>
+</body>
+</html>
