@@ -29,7 +29,7 @@
     "mongoose": "^5.8.11",
     "nexmo": "^2.6.0",
     "node-localstorage": "^2.1.5",
-    "nodemailer": "^6.4.2",
+    "nodemailer": "^6.4.16",
     "nodemon": "^2.0.2",
     "puretext": "^0.1.5",
     "socket.io": "^2.3.0",
